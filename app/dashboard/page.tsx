@@ -6,14 +6,22 @@ import { fetchRevenue, fetchLatestInvoices, fetchCardData } from '@/app/lib/data
 
 
 export default async function Page() {
-	const revenue = await fetchRevenue();
-	const latestInvoices = await fetchLatestInvoices();
 	const {
 		totalPaidInvoices,
 		totalPendingInvoices,
 		numberOfInvoices,
 		numberOfCustomers
 	} = await fetchCardData();
+
+	const revenuePromise = fetchRevenue();
+	const latestInvoicesPromise = fetchLatestInvoices();
+	const cardDataPromise = fetchCardData();
+
+	const [revenue, latestInvoices, cardData] = await Promise.all([
+		revenuePromise,
+		latestInvoicesPromise,
+		cardDataPromise,
+	]);
 
 	return (
 		<main>
