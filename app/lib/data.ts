@@ -11,15 +11,13 @@ import { formatCurrency } from './utils';
 
 export async function fetchRevenue() {
 	try {
-		// Artificially delay a response for demo purposes.
-		// Don't do this in production :)
-
-		console.log('Fetching revenue data...');
-		await new Promise((resolve) => setTimeout(resolve, 2500));
-
 		const data = await sql<Revenue>`SELECT * FROM revenue`;
 
-		console.log('Data fetch completed after 3 seconds.');
+		// Artificially delay a response for demo purposes.
+		// Don't do this in production :)
+		// console.log('Fetching revenue data...');
+		// await new Promise((resolve) => setTimeout(resolve, 2500));
+		// console.log('Data fetch completed after 2.5 seconds.');
 
 		return data.rows;
 	} catch (error) {
@@ -42,7 +40,11 @@ export async function fetchLatestInvoices() {
 			amount: formatCurrency(invoice.amount),
 		}));
 
-		await new Promise((resolve) => setTimeout(resolve, 1500));
+		// Artificially delay a response for demo purposes.
+		// Don't do this in production :)
+		// console.log('Fetching revenue data...');
+		// await new Promise((resolve) => setTimeout(resolve, 1500));
+		// console.log('Data fetch completed after 1.5 seconds.');
 
 		return latestInvoices;
 	} catch (error) {
@@ -74,7 +76,11 @@ export async function fetchCardData() {
 		const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
 		const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 
-		await new Promise((resolve) => setTimeout(resolve, 800));
+		// Artificially delay a response for demo purposes.
+		// Don't do this in production :)
+		// console.log('Fetching revenue data...');
+		// await new Promise((resolve) => setTimeout(resolve, 800));
+		// console.log('Data fetch completed after .8 seconds.');
 
 		return {
 			numberOfCustomers,
