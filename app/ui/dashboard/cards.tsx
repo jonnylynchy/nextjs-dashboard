@@ -24,7 +24,6 @@ export default async function CardWrapper() {
 		numberOfCustomers
 	} = cardData;
 
-
 	return (
 		<>
 			<Card title="Collected" value={totalPaidInvoices} type="collected" />
