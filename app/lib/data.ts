@@ -13,12 +13,6 @@ export async function fetchRevenue() {
 	try {
 		const data = await sql<Revenue>`SELECT * FROM revenue`;
 
-		// Artificially delay a response for demo purposes.
-		// Don't do this in production :)
-		// console.log('Fetching revenue data...');
-		// await new Promise((resolve) => setTimeout(resolve, 2500));
-		// console.log('Data fetch completed after 2.5 seconds.');
-
 		return data.rows;
 	} catch (error) {
 		console.error('Database Error:', error);
